@@ -36,6 +36,25 @@ function resetSelected() {
   })
 }
 
+// Reset Score & player/computer Choice 
+function resetAll() {
+  // Reset Score 
+  playerScoreNumber = 0
+  playerScoreEl.textContent = playerScoreNumber
+  playerChoiceEl.textContent = ""
+
+  computerScoreNumber = 0
+  computerScoreEl.textContent = computerScoreNumber
+  computerChoiceEl.textContent = ""
+
+  // Reset Result
+  resultText.textContent = ""
+
+  // Reset selected Icons
+  resetSelected()
+
+}
+
 // Random computer choice 
 function computerRandomChoice() {
   const computerChoiceNumber = Math.floor(Math.random() * 5)
@@ -143,3 +162,6 @@ function select(playerChoice) {
       break
   }
 }
+
+// On load, set initial values
+resetAll()
