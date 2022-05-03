@@ -25,6 +25,8 @@ const choices = {
   spock: { name: 'Spock', defeats: ['scissors', 'rock'] },
 };
 
+let computerChoice = ""
+
 // Reset all "selected" icons 
 function resetSelected() {
   allGameIcons.forEach((icon) => {
@@ -32,9 +34,67 @@ function resetSelected() {
   })
 }
 
+// Random computer choice 
+function computerRandomChoice() {
+  const computerChoiceNumber = Math.floor(Math.random() * 5)
+  switch (computerChoiceNumber) {
+    case 0:
+      computerChoice = "rock"
+      break
+    case 1:
+      computerChoice = "paper"
+      break
+    case 2:
+      computerChoice = "scissors"
+      break
+    case 3:
+      computerChoice = "lizard"
+      break
+    case 4:
+      computerChoice = "spock"
+      break    
+  }
+}
+
+// Display computer random choice
+function displayComputerRandomchoice() {
+  //Add 'selected' styling & playerChoice
+  switch (computerChoice) {
+    case "rock": 
+      computerRock.classList.add('selected')
+      computerChoiceEl.textContent = " --- Rock"
+      break
+    case "paper": 
+      computerPaper.classList.add('selected')
+      computerChoiceEl.textContent = " --- Paper"
+      break
+    case "scissors": 
+      computerScissors.classList.add('selected')
+      computerChoiceEl.textContent = " --- Scissors"
+      break
+    case "lizard": 
+      computerLizard.classList.add('selected')
+      computerChoiceEl.textContent = " --- Lizard"
+      break
+    case "spock": 
+      computerSpock.classList.add('selected')
+      computerChoiceEl.textContent = " --- Spock"
+      break
+    default: 
+      break
+  }
+}
+
+// Call funcitons to process turn
+function checkResults() {
+  resetSelected()
+  computerRandomChoice()
+  displayComputerRandomchoice()
+}
+
 // Passing player selection value and styling icons
 function select(playerChoice) {
-  resetSelected()
+  checkResults()
   //Add 'selected' styling & playerChoice
   switch (playerChoice) {
     case "rock": 
