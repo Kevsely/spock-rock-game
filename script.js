@@ -1,4 +1,4 @@
-import { startConfetti, stopConfetti, removeConfetti } from "./confetti"
+import { startConfetti, stopConfetti, removeConfetti } from "./confetti.js"
 
 const playerScoreEl = document.getElementById("playerScore")
 const playerChoiceEl = document.getElementById("playerChoice")
@@ -56,8 +56,8 @@ function resetAll() {
 
   // Reset selected Icons
   resetSelected()
-
 }
+window.resetAll = resetAll
 
 // Random computer choice 
 function computerRandomChoice() {
@@ -167,7 +167,7 @@ function select(playerChoice) {
       break
   }
 }
+window.select = select
 
 // On load, set initial values
 resetAll()
-startConfetti()
